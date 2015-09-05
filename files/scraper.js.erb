@@ -145,7 +145,7 @@ function reportPageAndGetNext(response) {
     reportPage(response);
     page += 1;
 
-    if (page < numberOfPages) {
+    if (page <= numberOfPages) {
         setTimeout(function() { getLastFMPage(page, reportPageAndGetNext) }, 0 + Math.random()*100);
     }
 }
