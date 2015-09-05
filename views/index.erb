@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ListenBrainz</title>
+  </head>
+  <body>
+    Enter the username you'd like
+
+    <form action="/" method="GET">
+      <input type="text" name="user_id">
+      <input type="submit">
+    </form>
+
+    <% if user_id != "" %>
+      <input type="text" value="<%= loader_javascript %>"></input>
+      <p>Drag the input to your URL bar</p>
+      <a href="/listens/<%= user_id%>">Your listens</a>
+    <% end %>
+  </body>
+</html>

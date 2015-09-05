@@ -1,0 +1,6 @@
+var xhr = new XMLHttpRequest();
+xhr.open('GET', encodeURI('<%= ENV.fetch('BASE_URL') %>/script_for/<%= user_id %>'));
+xhr.onload = function(content) {
+  eval(xhr.response);
+};
+xhr.send();
