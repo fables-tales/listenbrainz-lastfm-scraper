@@ -122,7 +122,7 @@ var numberOfPages = parseInt(document.getElementsByClassName("pages")[0].innerHT
 
 function reportScrobbles(struct) {
     //must have a trailing slash
-    var reportingURL = "<%= ENV.fetch("REPORTING_TARGET_BASE") %>/listens/<%= user_id %>";
+    var reportingURL = "<%= ENV.fetch("REPORTING_TARGET_BASE") %><%= user_id %>";
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", encodeURI(reportingURL));
