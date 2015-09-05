@@ -2,19 +2,28 @@
 <html>
   <head>
     <title>ListenBrainz</title>
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
   </head>
   <body>
-    Enter the username you'd like
+    What is your last.fm username?
+
+    <br>
 
     <form action="/" method="GET">
-      <input type="text" name="user_id">
+      <input type="text" name="user_id" value='<%= user_id %>'>
       <input type="submit">
     </form>
 
     <% if user_id != "" %>
-      <input type="text" value="<%= loader_javascript %>"></input>
-      <p>Select all the input, drag the text to your bookmarks bar, go to your last.fm scrobbles page and click it</p>
+      <hr>
+      <input type="text" value="<%= loader_javascript %>" id="loader"></input>
+      <p>Drag the javascript to your bookmarks bar</p>
+      <p>Then <a href="http://last.fm/user/<%= user_id%>/library">click here</a> and run the bookmarklet</p>
       <a href="/listens/<%= user_id%>">Your listens</a>
+
+      <script type="text/javascript">
+        document.getElementById("loader").select();
+      </script>
     <% end %>
   </body>
 </html>

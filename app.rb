@@ -42,7 +42,13 @@ end
 
 get "/" do
   user_id = params.fetch("user_id", "")
-  erb(:index, :locals => {:user_id => params.fetch("user_id", ""), :loader_javascript => "javascript:#{render_loader_javascript(user_id).gsub("\n", "")}"})
+  erb(
+    :index,
+    :locals => {
+      :user_id => params.fetch("user_id", ""), 
+      :loader_javascript => "javascript:#{render_loader_javascript(user_id).gsub("\n", "")}"
+    }
+  )
 end
 
 options "/*" do

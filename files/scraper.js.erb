@@ -137,7 +137,9 @@ function reportPage(response) {
     var struct = encodeScrobbles(elem);
     reportScrobbles(struct);
 }
+
 function reportPageAndGetNext(response) {
+  document.getElementById("listen-progress-container").innerHTML = "<img src='https://i.imgur.com/7g0M2fW.jpg' height='75'><br><br><i class='fa fa-cog fa-spin'></i> Sending page " + page + " of " + numberOfPages + " to ListenBrainz<br><span style='font-size:8pt'>Please don't navigate while this is running</span><br>";
     reportPage(response);
     page += 1;
 
@@ -146,4 +148,6 @@ function reportPageAndGetNext(response) {
     }
 }
 
+document.body.insertAdjacentHTML( 'afterbegin', '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">');
+document.body.insertAdjacentHTML( 'afterbegin', '<div style="position:absolute; top:200px; z-index: 200000000000000; width:600px; margin-left:-300px; left:50%; background-color:#fff; box-shadow: 0px 10px 72px 12px rgba(0,0,0,0.75); text-align:center; padding:50px;" id="listen-progress-container"><img src="https://i.imgur.com/7g0M2fW.jpg" height="75"></div>');
 getLastFMPage(page, reportPageAndGetNext);
